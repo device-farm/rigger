@@ -31,3 +31,5 @@ do
     fi
 
 done
+
+echo All done.
