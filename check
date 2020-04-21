@@ -22,7 +22,7 @@ do
 
     if [ -z $NO_DELETE ]
     then
-        echo rm $dir -rf
+        rm $dir -rf
     fi
 
 done
