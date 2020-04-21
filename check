@@ -11,8 +11,10 @@ for dir in $(find $RIGGER_HOME -maxdepth 1 -type d -name "job-*" | sort)
 do
     echo Starting $dir  
 
+    cd $dir
+
     set +e
-    $dir/try
+    ./try
     ERROR=$?
     set -e
 
@@ -20,10 +22,12 @@ do
     then
         echo Last job failed with code $ERROR
 
-        env ERROR=$ERROR $dir/catch
+        env ERROR=$ERROR ./catch
 
         exit 1
     fi
+
+    cd $RIGGER_HOME
 
     if [ -z $NO_DELETE ]
     then
