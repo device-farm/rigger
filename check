@@ -1,5 +1,8 @@
 #!/bin/bash
 
+cd $(dirname $0)
+git pull
+
 set -e
 
 for dir in $(find $(dirname $0) -maxdepth 1 -type d -name "job-*" | sort)

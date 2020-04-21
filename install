@@ -1,5 +1,12 @@
 #!/bin/bash
 
+set -e
 
+cd /host/opt
+git clone https://github.com/device-farm/rigger.git
 
-ls /host/etc/cron.daily
+ln -sf /opt/rigger/check /host/etc/cron.daily/rigger
+
+ls -l /host/etc/cron.daily
+
+echo Rigger installed.
