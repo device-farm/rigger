@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -e
+
+rm -rf /etc/cron.daily/rigger
+rm -rf /opt/rigger
