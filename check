@@ -2,7 +2,7 @@
 
 RIGGER_HOME=$(realpath $0)
 
-cd $(dirname $0)
+cd $RIGGER_HOME
 git pull
 
 set -e
