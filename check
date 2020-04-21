@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RIGGER_HOME=$(realpath $0)
+RIGGER_HOME=$(dirname $(realpath $0))
 
 cd $RIGGER_HOME
 git pull
