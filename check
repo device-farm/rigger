@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e
+
+for dir in $(find . -maxdepth 1 -type d -name "job-*" | sort)
+do
+    echo Starting $dir  
+
+    set +e
+    $dir/try
+    ERROR=$?
+    set -e
+
+    if [ $ERROR != "0" ]
+    then
+        echo Last job failed with code $ERROR
+
+        env ERROR=$ERROR $dir/catch
+
+        exit 1
+    fi
+
+    if [ -z $NO_DELETE ]
+    then
+        echo rm $dir -rf
+    fi
+
+done
