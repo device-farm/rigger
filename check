@@ -1,11 +1,13 @@
 #!/bin/bash
 
+RIGGER_HOME=$(realpath $0)
+
 cd $(dirname $0)
 git pull
 
 set -e
 
-for dir in $(find $(dirname $0) -maxdepth 1 -type d -name "job-*" | sort)
+for dir in $(find $RIGGER_HOME -maxdepth 1 -type d -name "job-*" | sort)
 do
     echo Starting $dir  
 
