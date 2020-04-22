@@ -1,11 +1,14 @@
 #!/bin/bash
 
-RIGGER_HOME=$(dirname $(realpath $0))
-
-cd $RIGGER_HOME
-git pull
-
 set -e
+
+RIGGER_HOME=$(dirname $(realpath $0))
+cd $RIGGER_HOME
+
+if [ -z $NO_PULL ]
+then
+    git pull
+fi
 
 for dir in $(find $RIGGER_HOME -maxdepth 1 -type d -name "job-*" | sort)
 do
@@ -22,8 +25,11 @@ do
     then
         echo Last job failed with code $ERROR
 
-        env ERROR=$ERROR ./catch
-
+        if [ -f ./catch ]
+        then
+            env ERROR=$ERROR ./catch
+        fi
+        
         exit 1
     fi
 

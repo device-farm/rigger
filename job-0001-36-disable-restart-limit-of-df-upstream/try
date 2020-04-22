@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+cp df-upstream.service /etc/systemd/system/df-upstream.service 
+
+set +e
+echo $PATH
+systemctl daemon-reload
+service df-upstream restart

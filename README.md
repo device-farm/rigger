@@ -1,8 +1,18 @@
 # rigger
 RIGGER - device update by git
 
-## Local dev test
+## Jobs local test
+This runs complete list of jobs in docker
 ```
-docker build . -t defa/rigger-install && sudo rm -rf /opt/rigger && docker run -it --rm -v /:/host defa/rigger-install && sudo  /opt/rigger/check
+./test
 ```
 
+## Build and push installer
+```
+docker build . -t defa/rigger-install -f Dockerfile-install && docker push defa/rigger-install
+```
+
+## Install to host
+```
+docker run -it --rm -v /:/host defa/rigger-install
+```

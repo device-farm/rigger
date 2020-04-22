@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+docker build . -t defa/rigger-test -f Dockerfile-test
+docker run -it --rm --name rigger-test defa/rigger-test
+
+
+

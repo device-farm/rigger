@@ -1,0 +1,11 @@
+[Unit]
+Description=DEVICE.FARM Upstream
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/df-oc-start
+
+[Install]
+WantedBy=multi-user.target

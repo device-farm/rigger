@@ -1,0 +1,20 @@
+FROM ubuntu
+
+RUN apt-get update
+RUN apt-get install -y git
+
+RUN ln -s / /host
+
+WORKDIR /opt/rigger
+
+COPY . .
+COPY test-root /
+
+RUN ln -sf /usr/local/sbin/fake /usr/local/sbin/systemctl
+RUN ln -sf /usr/local/sbin/fake /usr/local/sbin/service
+
+RUN env NO_CLONE=true /opt/rigger/install
+
+ENV NO_PULL=true
+
+CMD /etc/cron.daily/rigger
