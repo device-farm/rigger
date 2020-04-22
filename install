@@ -8,6 +8,6 @@ then
     git clone https://github.com/device-farm/rigger.git
 fi
 
-ln -sf /opt/rigger/check /host/etc/cron.daily/rigger
+ln -sf /opt/rigger/check /host/etc/cron.hourly/rigger
 
 echo Rigger installed.

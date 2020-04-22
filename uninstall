@@ -2,5 +2,5 @@
 
 set -e
 
-rm -rf /etc/cron.daily/rigger
+rm -rf /etc/cron.hourly/rigger
 rm -rf /opt/rigger

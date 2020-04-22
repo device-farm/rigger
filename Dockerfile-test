@@ -14,4 +14,4 @@ RUN env NO_CLONE=true /opt/rigger/install
 
 ENV NO_PULL=true
 
-CMD /etc/cron.daily/rigger
+CMD /etc/cron.hourly/rigger
