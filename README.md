@@ -9,10 +9,10 @@ This runs complete list of jobs in docker
 
 ## Build and push installer
 ```
-docker build . -t defa/rigger-install -f Dockerfile-install && docker push defa/rigger-install
+docker buildx build . -t defa/rigger-install --platform linux/arm/v7 -f Dockerfile-install --push
 ```
 
-## Install to host
+## Install to device
 ```
-docker run -it --rm -v /:/host defa/rigger-install
+docker --tls -H ... run -it --rm -v /:/host --name rigger-install defa/rigger-install
 ```

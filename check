@@ -5,6 +5,12 @@ set -e
 RIGGER_HOME=$(dirname $(realpath $0))
 cd $RIGGER_HOME
 
+if [ -z $(which git) ]
+then
+    apt-get update
+    apt-get install -y git
+fi
+
 if [ -z $NO_PULL ]
 then
     git pull
