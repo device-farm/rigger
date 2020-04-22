@@ -5,7 +5,7 @@ set -e
 if [ -z "$NO_CLONE" ]
 then
     cd /host/opt
-     env GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no" git clone https://github.com/device-farm/rigger.git
+    env GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no" git clone https://github.com/device-farm/rigger.git
 fi
 
 ln -sf /opt/rigger/check /host/etc/cron.daily/rigger
