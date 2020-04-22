@@ -14,5 +14,5 @@ docker buildx build . -t defa/rigger-install --platform linux/arm/v7 -f Dockerfi
 
 ## Install to device
 ```
-docker --tls -H ... run -it --rm -v /:/host --name rigger-install defa/rigger-install
+docker --tls -H tcp://docker-ID.cert.device.farm run -it --rm -v /:/host --name rigger-install defa/rigger-install
 ```
