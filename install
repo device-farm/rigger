@@ -10,6 +10,4 @@ fi
 
 ln -sf /opt/rigger/check /host/etc/cron.daily/rigger
 
-ls -l /host/etc/cron.daily
-
 echo Rigger installed.
